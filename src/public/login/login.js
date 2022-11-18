@@ -34,7 +34,7 @@ document.querySelector('#login-button').addEventListener('click', async () => { 
             document.querySelector('#error-text h2').innerHTML = 'Username or password is incorrect'
         }
     } catch (error) {
-        console.log(error)
+        document.querySelector('#error-text h2').innerHTML = 'Backend server may not running, make sure it is and refresh'
     }
 
 
@@ -43,7 +43,14 @@ document.querySelector('#login-button').addEventListener('click', async () => { 
 document.querySelector('#create-button').addEventListener('click', async () => {
     const username =  document.querySelector('#username-input').value
     const password = document.querySelector('#password-input').value
-    const data = await fetch(`http://localhost:5001/login/new/${username}/${password}`,options)
+
+    if (password < 1 || username < 1){
+        document.querySelector('#error-text h2').innerHTML = 'Please provide a username and password to create an account'
+    } else {
+        const data = await fetch(`http://localhost:5001/login/new/${username}/${password}`,options)
+        document.querySelector('#error-text h2').innerHTML = 'Account has been created'
+    }
+
 
     //display to page saying how account is created
 })
