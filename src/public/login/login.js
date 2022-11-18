@@ -47,7 +47,7 @@ document.querySelector('#create-button').addEventListener('click', async () => {
     if (password.length < 1 || username.length < 1){
         document.querySelector('#error-text h2').innerHTML = 'Please provide a username and password'
     } else {
-        const data = await fetch(`http://localhost:5001/login/new/${username}/${password}`,options)
+        const data = await fetch(`http://localhost:5001/login/new/${username}/${password}`,createOptions)
         document.querySelector('#error-text h2').innerHTML = 'Account has been created'
     }
 

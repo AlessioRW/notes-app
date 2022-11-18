@@ -6,10 +6,6 @@ async function createDatabase() {
         force: true
     })
 
-    await User.create({
-        username: 'goku',
-        password: 'kakarot'
-    })
 
 }
 
