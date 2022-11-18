@@ -124,7 +124,9 @@ async function updateNotePos(noteId,newPos){
 }
 
 document.querySelector('#create-button',).addEventListener('click', async () => {
-    await fetch(`http://localhost:5001/main/${sessionStorage.getItem('id')}`, {
+    try{
+        document.querySelector('#error-msg').innerHTML = ''
+        await fetch(`http://localhost:5001/main/${sessionStorage.getItem('id')}`, {
         headers: {
             "content-type": "application/json; charset=UTF-8"
         },
@@ -135,6 +137,9 @@ document.querySelector('#create-button',).addEventListener('click', async () => 
         method:"POST"
     })
     renderNotes()
+    } catch {
+        document.querySelector('#error-msg').innerHTML = 'Cannot reach server, make sure it is running and refresh the page'
+    }
 })
 
 window.addEventListener('scroll', (e) => {
