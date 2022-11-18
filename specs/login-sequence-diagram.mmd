@@ -1,0 +1,19 @@
+sequenceDiagram
+participant front-end
+participant API
+participant database
+
+alt user logs in
+front-end ->> front-end: user enters login details
+front-end -->> API: call to API (get request) made with login details
+API -->> database: API checks if user exits in database
+database -->> front-end: sends back 200 if valid, 400 if invalid
+
+else user creates account
+front-end ->> front-end: user enters new account details
+front-end -->> API: post request on API using input data
+API -->> database: API adds new user to database
+end
+
+front-end -->> front-end: if valid request if made, <br>front end chnages to main
+

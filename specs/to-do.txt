@@ -1,0 +1,44 @@
+
+-- login API -- DONE
+
+POST for new user
+    passes username and password in body
+    adds to database
+        returns ok (200) for success
+        returns bad reqeust (400) for username alreafy exists
+
+GET for existing user
+    passes username and password in body
+        returns ok (200) for match
+        returns invalid (400) for non-match
+
+-- main API -- --DONE
+
+GET all notes -- DONE
+    -passes username from session storage
+    -returns list of note objs
+    -displays on screen
+
+POST to create new note -- DONE
+    passes content and title in body
+    adds to database
+        returns ok (200) for success
+        returns bad request (400) if failure
+    once done, js will get all notes again and display to page
+        using GET method from before
+
+DELETE one note --DONE
+    passes id of note
+    matches id and remove note from database
+    uses GET from before to update all notes
+
+
+
+
+--Style login and main page --
+
+
+
+-- add error message on login page --
+if not 200, reference object where key = status, value = error, or
+just send the error message back on the router. ignore thrown error, can't get rid of

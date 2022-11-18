@@ -1,0 +1,53 @@
+To-Do List App with Authentication
+
+-login-page
+user starts on login page which allows for creation of an account or logging into an existing account
+once logged in, the local storage will recieve a username and password which will be used to retireve and store information on the main page
+login page then redirects to the main page
+
+-main page
+page pulls all previous notes from the database for current user and renders them,
+new notes can be added by typing in on the box on the screen which will render the new note on the page when submitted
+notes can be deleted using a button at the top left
+every time a note is created or deleted, all notes will be re-rendered
+
+database:
+user table
+notes table
+
+user has many notes
+note belongs to user
+
+https://www.freecodecamp.org/news/here-is-the-most-popular-ways-to-make-an-http-request-in-javascript-954ce8c95aaa/
+
+file structure:
+
+src:
+server/
+    server.js
+    routes/
+        login.route.js
+        main.route.js
+
+db/
+    db.js
+    modles/
+        user.model.js (integer id, string username, string password)
+        notes.model.js (integer id, string content, integer userId)
+
+pages/
+    login/
+        login.html
+        login.js
+        login.css
+    main/
+        main.html
+        main.js
+        main.css
+
+
+requirements:
+sqlite3
+sequelize
+express
+express-validator (maybe)
